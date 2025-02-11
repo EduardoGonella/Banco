@@ -146,9 +146,6 @@ function cadastrarConta(&$contas, $cpfCliente)
 
 function depositar(&$contas, $numero_conta, $valor)
 {
-
-    print_r($contas);
-
     foreach ($contas as &$conta) {
         if ($conta['numeroConta'] == $numero_conta) {
             if ($valor > 0) {
@@ -167,7 +164,7 @@ function depositar(&$contas, $numero_conta, $valor)
 
 function sacar(&$contas, $numero_conta, $valor)
 {
-    foreach ($contas as $conta) {
+    foreach ($contas as &$conta) {
         if ($conta['numeroConta'] == $numero_conta) {
             $conta['saldo'] = $conta['saldo'] - $valor;
             print "O valor de R\$$valor foi retirado do seu saldo.\n";
