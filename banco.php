@@ -26,10 +26,10 @@ function menuCliente($numeroConta)
         apaga();
         do {
             $quantia = readline("Informe o valor que deseja sacar: ");
-            if ($quantia <= 0 or $quantia > $contas[$numeroConta]['saldo']) {
-                print("Valor inexistente ou maior que o saldo. Informe novamente.\n");
+            if ($quantia <= 0) {
+                print("Valor inexistente ou igual a zero. Informe novamente.\n");
             }
-        } while ($quantia <= 0 or $quantia > $contas[$numeroConta]['saldo']);
+        } while ($quantia <= 0);
         sacar($contas, $numeroConta, $quantia);
         menuCliente($numeroConta);
     } elseif ($opcao == 2) {
